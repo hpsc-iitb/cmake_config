@@ -5,10 +5,10 @@
   - Add CMake to path (test if the command `cmake` works in shell)
   - Install [SFML](https://www.sfml-dev.org/download/sfml/2.5.1/)
     - Minimum version 2.5 required 
-    - Use the correct version of `mingw` or Visual Studio (Community) mentioned on the download page
+    - Download the correct version of `mingw` or Visual Studio (Community) as mentioned on the SFML download page
     - If using `mingw`, make sure `g++` works in shell
   - Install OpenCL
-    - For Nvidia users, download the CUDA SDK, this install OpenCL as well
+    - For Nvidia users, download the CUDA SDK, this installs OpenCL as well
     - AMD people download [OpenCL SDK](https://github.com/GPUOpen-LibrariesAndSDKs/OCL-SDK/releases)
 
 ## Compiling
