@@ -11,7 +11,7 @@ set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules")
 include_directories(include)
 
 #Sources
-AUX_SOURCE_DIRECTORy(src/ ALL_SOURCES)
+AUX_SOURCE_DIRECTORY(src/ ALL_SOURCES)
 
 set(EXEC_NAME raytrace)
 
