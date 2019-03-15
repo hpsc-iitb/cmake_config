@@ -6,25 +6,16 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/libs)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules")
-option(DEBUG_BUILD "generate debug binaries" ON)
-
-if(DEBUG_BUILD)
-  add_definitions(-DDEBUG_BUILD)
-  message("Debug Build")
-endif()
 
 #Headers
 include_directories(include)
 
 #Sources
-#set(SOURCES src/plot.cpp src/plotdata.cpp src/subplot.cpp src/test_tmp.cpp)
 AUX_SOURCE_DIRECTORy(src/ ALL_SOURCES)
-# set(SOURCES ALL_SOURCES)
 
 set(EXEC_NAME raytrace)
 
 set(SFML_DIR "F:/libs/SFML-2.5.1/lib/cmake/SFML")
-#add_library(${EXEC_NAME} SHARED ${SOURCES})
 
 find_package(OpenCL REQUIRED)
 if(OpenCL_FOUND)
@@ -36,7 +27,10 @@ endif()
 
 find_package(SFML 2.5 COMPONENTS graphics window system)
 if(SFML_FOUND)
-  add_executable(${EXEC_NAME} ${ALL_SOURCES})
   include_directories(${SFML_INCLUDE_DIR})
+endif()
+
+if(SFML_FOUND AND OpenCL_FOUND)
+  add_executable(${EXEC_NAME} ${ALL_SOURCES})
   target_link_libraries(${EXEC_NAME} sfml-window sfml-graphics sfml-system ${OpenCL_LIBRARIES})
 endif()
